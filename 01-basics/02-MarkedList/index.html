@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <title>MarkedList</title>
@@ -9,20 +10,23 @@
     }
   </style>
 </head>
+
 <body>
 
-<div id="app">
-  <input type="text" />
-  <ul>
-    <li>Email</li>
-    <li class="marked">Email</li>
-    <li class="marked">Email</li>
-    <li>Email</li>
-    <li>Email</li>
-    <li>...</li>
-  </ul>
-</div>
+  <div id="app">
+    <input v-model="searchValue" type="text" />
+    <p>{{ searchValue }}</p>
+    <ul>
+      <li
+        v-for="(email, index) in emails"
+        :key="index"
+        :class="{'marked': email.includes(searchValue)}">
+        {{ email }}
+      </li>
+    </ul>
+  </div>
 
-<script type="module" src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
+
 </html>
