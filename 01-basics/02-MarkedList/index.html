@@ -20,7 +20,7 @@
       <li
         v-for="(email, index) in emails"
         :key="index"
-        :class="email.includes(searchValue) ? 'marked' : ''">
+        :class="{'marked': email.includes(searchValue)}">
         {{ email }}
       </li>
     </ul>
